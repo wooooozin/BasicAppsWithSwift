@@ -30,7 +30,7 @@ extension ViewController {
         
         textButton.titleLabel?.text = "나의 첫번째 앱"
         textButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
-        textButton.backgroundColor = .systemBlue
-        textButton.tintColor = .white
+        textButton.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        textButton.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
 }
