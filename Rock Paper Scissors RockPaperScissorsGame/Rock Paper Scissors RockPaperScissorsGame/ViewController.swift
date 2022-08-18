@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var comLabel: UILabel!
     @IBOutlet weak var myLabel: UILabel!
     
+    var myChoice = Rps.rock
+    var comChoice = Rps(rawValue: Int.random(in: 0...2))!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,22 +23,55 @@ class ViewController: UIViewController {
     
     @IBAction func didTapRPSButton(_ sender: UIButton) {
         guard let title = sender.currentTitle else { return }
-//        switch title {
-//        case "가위":
-//        case "바위":
-//        case "보":
-//        default:
-//            break
-//        }
-        print(title)
+        switch title {
+        case "가위":
+            myChoice = Rps.scissors
+        case "바위":
+            myChoice = Rps.rock
+        case "보":
+            myChoice = Rps.paper
+        default:
+            break
+        }
     }
     
     @IBAction func didTapResetButton(_ sender: UIButton) {
-        
+        mainLabel.text = "SELECT"
+        myLabel.text = "Ready"
+        comLabel.text = "Ready"
+        comChoice = Rps(rawValue: Int.random(in: 0...2))!
     }
     
     @IBAction func didTapSelectButton(_ sender: UIButton) {
+        switch comChoice {
+        case Rps.rock:
+            comLabel.text = "바위"
+        case Rps.paper:
+            comLabel.text = "보"
+        case Rps.scissors:
+            comLabel.text = "가위"
+        }
         
+        switch myChoice {
+        case Rps.rock:
+            myLabel.text = "바위"
+        case Rps.paper:
+            myLabel.text = "보"
+        case Rps.scissors:
+            myLabel.text = "가위"
+        }
+        
+        if comChoice == myChoice {
+            mainLabel.text = "DRAW"
+        } else if comChoice == .paper && myChoice == .scissors {
+            mainLabel.text = "WIN"
+        } else if comChoice == .scissors && myChoice == .rock {
+            mainLabel.text = "WIN"
+        } else if comChoice == .rock && myChoice == .paper {
+            mainLabel.text = "WIN"
+        } else {
+            mainLabel.text = "LOSE"
+        }
     }
 }
 
