@@ -20,18 +20,14 @@ class ViewController: UIViewController {
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureUI()
-        
     }
     
     //MARK: - Action
     @IBAction func sliderChanged(_ sender: UISlider) {
-        let seconds = Int(sender.value)
-        mainLabel.text = "⏰ \(seconds) 초"
-        timerNumber = seconds
+        timerNumber = Int(sender.value)
+        mainLabel.text = "⏰ \(timerNumber) 초"
     }
-    
     
     @IBAction func startButtonTapped(_ sender: UIButton) {
         setTimer()
@@ -51,26 +47,31 @@ extension ViewController {
     func configureUI() {
         mainLabel.text = "초를 선택하세요 ⏰"
         timerSlider.value = 30
+        timerNumber = Int(timerSlider.value)
     }
     
     func setTimer() {
         timer?.invalidate()
         timer = Timer.scheduledTimer(
-            withTimeInterval: 1.0,
-            repeats: true,
-            block: { [self] _ in
-                if timerNumber > 0 {
-                    timerNumber -= 1
-                    timerSlider.value = Float(timerNumber)
-                    mainLabel.text = "⏰ \(timerNumber) 초"
-                } else {
-                    timerNumber = 0
-                    mainLabel.text = "타이머 종료 ⏰"
-                    AudioServicesPlayAlertSound(SystemSoundID(1322))
-                    timer?.invalidate()
-                }
-            }
+            timeInterval: 1.0,
+            target: self,
+            selector: #selector(doSometingAfterTimer),
+            userInfo: nil,
+            repeats: true
         )
+    }
+    
+    @objc func doSometingAfterTimer() {
+        if timerNumber > 0 {
+            timerNumber -= 1
+            timerSlider.value = Float(timerNumber)
+            mainLabel.text = "⏰ \(timerNumber) 초"
+        } else {
+            timerNumber = 0
+            mainLabel.text = "타이머 종료 ⏰"
+            AudioServicesPlayAlertSound(SystemSoundID(1322))
+            timer?.invalidate()
+        }
     }
 }
 
