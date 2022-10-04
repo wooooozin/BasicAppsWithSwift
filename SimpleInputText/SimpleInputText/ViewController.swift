@@ -31,12 +31,12 @@ extension ViewController {
         view.backgroundColor = .systemGray5
         doneButton.isEnabled = false
         
-        textField.delegate = self
         textField.keyboardType = .emailAddress
         textField.borderStyle = .roundedRect
         textField.clearButtonMode = .always
         textField.returnKeyType = .next
         textField.placeholder = "E-mail"
+        textField.delegate = self
     }
     
     func configureButtonObservers() {
@@ -57,4 +57,18 @@ extension ViewController: UITextFieldDelegate {
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         return true
     }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("입력 시작")
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField.text == "" {
+            textField.placeholder = "Type Email"
+            return false
+        } else {
+            return true
+        }
+    }
+    
 }
