@@ -19,9 +19,13 @@ class ViewController: UIViewController {
         configureButtonObservers()
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     //MARK: - Action
     @IBAction func doneButtonTapped(_ sender: UIButton) {
-        
+        textField.resignFirstResponder()
     }
 }
 
@@ -36,6 +40,7 @@ extension ViewController {
         textField.clearButtonMode = .always
         textField.returnKeyType = .next
         textField.placeholder = "E-mail"
+        textField.becomeFirstResponder()
         textField.delegate = self
     }
     
@@ -62,6 +67,18 @@ extension ViewController: UITextFieldDelegate {
         print("입력 시작")
     }
     
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        let maxLength = 10
+        let currentString: NSString = (textField.text ?? "") as NSString
+        let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+        
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField.text == "" {
             textField.placeholder = "Type Email"
@@ -70,5 +87,4 @@ extension ViewController: UITextFieldDelegate {
             return true
         }
     }
-    
 }
