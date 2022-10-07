@@ -8,7 +8,7 @@
 import UIKit
 
 struct BMICalculatorManager {
-    var result: BMIModel?
+    private var result: BMIModel?
     
     mutating func getBMIResult(height: String, weight: String) -> BMIModel {
         calculateBMI(height: height, weight: weight)
