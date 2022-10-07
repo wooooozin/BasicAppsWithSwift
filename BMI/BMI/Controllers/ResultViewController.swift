@@ -15,9 +15,7 @@ class ResultViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     
-    var bmiResult: Double?
-    var adviceText: String?
-    var bmiColor: UIColor?
+    var bmiResult: BMIModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,8 +41,8 @@ extension ResultViewController {
         backButton.setTitle("다시 계산하기", for: .normal)
         
         guard let bmi = bmiResult else { return }
-        bmiNumberLabel.text = String(bmi)
-        resultLabel.text = adviceText
-        resultLabel.backgroundColor = bmiColor
+        bmiNumberLabel.text = "\(bmi.value)"
+        resultLabel.text = bmi.advice
+        resultLabel.backgroundColor = bmi.matchColor
     }
 }

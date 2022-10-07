@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var weightTextField: UITextField!
     @IBOutlet weak var calculateButton: UIButton!
     
-    var result: Double?
+    var bmiManager = BMICalculatorManager()
     
     // MARK: - LifeCycle
 
@@ -30,9 +30,7 @@ class ViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction func calculateButtonTapped(_ sender: UIButton) {
-        guard let height = heightTextField.text,
-              let weight = weightTextField.text else { return }
-        result = calculateBMI(height: height, weight: weight)
+        print(#function)
     }
 }
 
@@ -49,38 +47,11 @@ extension ViewController {
         calculateButton.setTitle("BMI 계산하기", for: .normal)
     }
     
-    func calculateBMI(height: String, weight: String) -> Double {
-        guard let height = Double(height),
-              let weight = Double(weight) else { return 0.0 }
-        var bmi = weight / (height * height) * 10000
-        bmi = round(bmi * 10) / 10
-        return bmi
-    }
-    
-    func getBmiResult() -> (UIColor, String) {
-        guard let result = result else { return (UIColor.clear, "") }
-        switch result {
-        case ..<18.6:
-            return (.systemBlue, "저체중")
-        case 18.6..<23.0:
-            return (.systemGreen, "GOOD")
-        case 23.0..<25.0:
-            return (.systemPink, "과체중")
-        case 25.0..<30.0:
-            return (.systemOrange, "중도비만")
-        case 30.0...:
-            return (.systemRed, "고도비만")
-        default:
-            return (.black, "")
-        }
-    }
-    
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         if heightTextField.text == "" || weightTextField.text == "" {
             mainLabel.textColor = .red
             return false
         }
-        mainLabel.text = "키와 몸무게를 입력해주세요"
         mainLabel.textColor = .black
         return true
     }
@@ -88,9 +59,9 @@ extension ViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toResultVC" {
             let resultVC = segue.destination as? ResultViewController
-            resultVC?.bmiResult = result
-            resultVC?.adviceText = getBmiResult().1
-            resultVC?.bmiColor = getBmiResult().0
+            guard let height = heightTextField.text,
+                  let weight = weightTextField.text else { return }
+            resultVC?.bmiResult = bmiManager.getBMIResult(height: height, weight: weight)
         }
         heightTextField.text = ""
         weightTextField.text = ""
