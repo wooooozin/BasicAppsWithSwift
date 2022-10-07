@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		367987B328EFBB4400872EA8 /* UpDownManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367987B228EFBB4400872EA8 /* UpDownManager.swift */; };
 		36E5764028AF197E00D48F96 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E5763F28AF197E00D48F96 /* AppDelegate.swift */; };
 		36E5764228AF197E00D48F96 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E5764128AF197E00D48F96 /* SceneDelegate.swift */; };
 		36E5764428AF197E00D48F96 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36E5764328AF197E00D48F96 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		367987B228EFBB4400872EA8 /* UpDownManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpDownManager.swift; sourceTree = "<group>"; };
 		36E5763C28AF197E00D48F96 /* UpAndDownGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpAndDownGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36E5763F28AF197E00D48F96 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36E5764128AF197E00D48F96 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +39,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		367987AD28EFBA8000872EA8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				367987B228EFBB4400872EA8 /* UpDownManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		367987AE28EFBA8A00872EA8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36E5764528AF197E00D48F96 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		367987AF28EFBA8F00872EA8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				36E5764328AF197E00D48F96 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		36E5763328AF197E00D48F96 = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +82,11 @@
 		36E5763E28AF197E00D48F96 /* UpAndDownGame */ = {
 			isa = PBXGroup;
 			children = (
+				367987AD28EFBA8000872EA8 /* Model */,
+				367987AE28EFBA8A00872EA8 /* View */,
+				367987AF28EFBA8F00872EA8 /* Controller */,
 				36E5763F28AF197E00D48F96 /* AppDelegate.swift */,
 				36E5764128AF197E00D48F96 /* SceneDelegate.swift */,
-				36E5764328AF197E00D48F96 /* ViewController.swift */,
-				36E5764528AF197E00D48F96 /* Main.storyboard */,
 				36E5764828AF198000D48F96 /* Assets.xcassets */,
 				36E5764A28AF198000D48F96 /* LaunchScreen.storyboard */,
 				36E5764D28AF198000D48F96 /* Info.plist */,
@@ -140,6 +167,7 @@
 			files = (
 				36E5764428AF197E00D48F96 /* ViewController.swift in Sources */,
 				36E5764028AF197E00D48F96 /* AppDelegate.swift in Sources */,
+				367987B328EFBB4400872EA8 /* UpDownManager.swift in Sources */,
 				36E5764228AF197E00D48F96 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

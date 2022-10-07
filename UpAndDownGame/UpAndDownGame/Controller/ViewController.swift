@@ -11,38 +11,35 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var selectLabel: UILabel!
     
-    var randomNumber = Int.random(in: 1...10)
-//    var myNumber = 1
+    var upDownManager = UpDownManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        reset()
+    }
+    
+    func reset() {
         resultLabel.text = "SELECT"
         selectLabel.text = "Your Number"
+        upDownManager.resetNum()
     }
     
     @IBAction func didTapChooseNumber(_ sender: UIButton) {
         guard let numberString = sender.currentTitle else { return }
         selectLabel.text = numberString
-//        guard let number = Int(numberString) else { return }
-//        myNumber = number
+        guard let num = Int(numberString) else { return }
+        upDownManager.setUsersNum(num: num)
     }
     
     @IBAction func didTapReset(_ sender: UIButton) {
-        randomNumber = Int.random(in: 1...10)
-        resultLabel.text = "SELECT"
-        selectLabel.text = "Your Number"
+        reset()
     }
     
     @IBAction func didTapSelect(_ sender: UIButton) {
         guard let myNumberStr = selectLabel.text else { return }
         guard let myNumber = Int(myNumberStr) else { return }
         
-        if randomNumber > myNumber {
-            selectLabel.text = "UP"
-        } else if randomNumber < myNumber {
-            selectLabel.text = "DOWN"
-        } else {
-            selectLabel.text = "BINGO! 😍"
-        }
+        upDownManager.setUsersNum(num: myNumber)
+        resultLabel.text = upDownManager.getUpDownResult()
     }
 }
