@@ -28,6 +28,12 @@ class ViewController: UIViewController {
         movieDataManager.makeMovieData()
 //        movieData = movieDataManager.getMovieData()
     }
+    
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        movieDataManager.updateMovieData()
+        tableVIew.reloadData()
+    }
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -53,6 +59,7 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "toDetailVC", sender: indexPath)
     }
     
