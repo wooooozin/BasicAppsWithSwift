@@ -13,6 +13,8 @@
 		3674D19428F2E74A0036B442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3674D19228F2E74A0036B442 /* Main.storyboard */; };
 		3674D19628F2E74C0036B442 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3674D19528F2E74C0036B442 /* Assets.xcassets */; };
 		3674D19928F2E74C0036B442 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3674D19728F2E74C0036B442 /* LaunchScreen.storyboard */; };
+		3674D1A428F2EC010036B442 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674D1A328F2EC010036B442 /* User.swift */; };
+		3674D1A628F2FF460036B442 /* UserListManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674D1A528F2FF460036B442 /* UserListManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		3674D19528F2E74C0036B442 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3674D19828F2E74C0036B442 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3674D19A28F2E74C0036B442 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3674D1A328F2EC010036B442 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		3674D1A528F2FF460036B442 /* UserListManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,41 @@
 		3674D18B28F2E74A0036B442 /* UserInfoProject */ = {
 			isa = PBXGroup;
 			children = (
+				3674D1A028F2EBBA0036B442 /* Models */,
+				3674D1A128F2EBCA0036B442 /* Views */,
+				3674D1A228F2EBD20036B442 /* Controllers */,
 				3674D18C28F2E74A0036B442 /* AppDelegate.swift */,
 				3674D18E28F2E74A0036B442 /* SceneDelegate.swift */,
-				3674D19028F2E74A0036B442 /* ViewController.swift */,
-				3674D19228F2E74A0036B442 /* Main.storyboard */,
 				3674D19528F2E74C0036B442 /* Assets.xcassets */,
 				3674D19728F2E74C0036B442 /* LaunchScreen.storyboard */,
 				3674D19A28F2E74C0036B442 /* Info.plist */,
 			);
 			path = UserInfoProject;
+			sourceTree = "<group>";
+		};
+		3674D1A028F2EBBA0036B442 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3674D1A328F2EC010036B442 /* User.swift */,
+				3674D1A528F2FF460036B442 /* UserListManager.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3674D1A128F2EBCA0036B442 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3674D19228F2E74A0036B442 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3674D1A228F2EBD20036B442 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3674D19028F2E74A0036B442 /* ViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +168,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3674D1A428F2EC010036B442 /* User.swift in Sources */,
 				3674D19128F2E74A0036B442 /* ViewController.swift in Sources */,
 				3674D18D28F2E74A0036B442 /* AppDelegate.swift in Sources */,
+				3674D1A628F2FF460036B442 /* UserListManager.swift in Sources */,
 				3674D18F28F2E74A0036B442 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +319,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UserInfoProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -318,6 +351,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UserInfoProject/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
