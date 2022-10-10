@@ -11,18 +11,38 @@ final class ViewController: UIViewController {
     
     // MARK: - Property
     private let tableView = UITableView()
+    
+    var userListManager = UserListManager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
+        view.backgroundColor = .white
+        setupDatas()
+        setupTableView()
+        setupNavigationBar()
         setupTableViewConstraints()
     }
 }
 
-// MARK: - setupTableViewConstraints
+
 
 extension ViewController {
+    
+    // MARK: - setupUI
+    
+    private func setupNavigationBar() {
+        navigationItem.title = "회원 목록"
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+//        self.navigationItem.rightBarButtonItem = self.plustButton
+    }
+    
     private func setupTableViewConstraints() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,13 +66,24 @@ extension ViewController {
             )
         ])
     }
+    
+    // MARK: - Methods
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    private func setupDatas() {
+        userListManager.makeUserListData()
+    }
+
 }
 
 // MARK: - UITableViewDataSource
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return userListManager.getUserList().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
