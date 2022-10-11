@@ -28,10 +28,10 @@ final class ViewController: UIViewController {
         setupTableViewConstraints()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        tableView.reloadData()
+//    }
 }
 
 
@@ -89,7 +89,7 @@ extension ViewController {
     
     @objc func plusButtonTapped() {
         let detailVC = DetailViewController()
-        //detailVC.delegate = self
+        detailVC.delegate = self
         navigationController?.pushViewController(detailVC, animated: true)
     }
 
@@ -122,9 +122,24 @@ extension ViewController: UITableViewDataSource {
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailViewController()
+        vc.delegate = self
         let array = userListManager.getUserList()
         vc.user = array[indexPath.row]
-        
         navigationController?.pushViewController(vc, animated: true)
     }
 }
+
+// MARK: - UserDelegate
+
+extension ViewController: UserDelegate {
+    func addNewUser(_ user: User) {
+        userListManager.makeNewUser(user)
+        tableView.reloadData()
+    }
+    
+    func updateUser(index: Int, _ user: User) {
+        userListManager.updateUserInfo(index: index, user)
+        tableView.reloadData()
+    }
+}
+

@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol UserDelegate: AnyObject {
+    func addNewUser(_ user: User)
+    func updateUser(index: Int, _ user: User)
+}
+
 struct User {
     lazy var userImage: UIImage? = {
         guard let name = name else {

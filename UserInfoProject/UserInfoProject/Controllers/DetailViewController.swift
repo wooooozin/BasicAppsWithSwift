@@ -13,7 +13,8 @@ final class DetailViewController: UIViewController {
     // MARK: - Property
 
     private let detailView = DetailView()
-    var user: User? 
+    var user: User?
+    weak var delegate: UserDelegate?
     
     // MARK: - LifeCycle
 
@@ -26,7 +27,7 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         setupData()
         setupButtonAction()
-        setupTapGestures() 
+        setupTapGestures()
     }
     
     // MARK: - Method
@@ -73,11 +74,12 @@ final class DetailViewController: UIViewController {
             User(name: name, age: age, phoneNumber: phoneNumber, address: address)
             user?.userImage = detailView.mainImageView.image
             
-            let index = navigationController!.viewControllers.count - 2
-            guard let vc = navigationController?.viewControllers[index] as? ViewController else { return }
-            vc.userListManager.makeNewUser(newUser)
+//            let index = navigationController!.viewControllers.count - 2
+//            guard let vc = navigationController?.viewControllers[index] as? ViewController else { return }
+//            vc.userListManager.makeNewUser(newUser)
             
-            //delegate?.addNewMember(newMember)
+            delegate?.addNewUser(newUser)
+            
             } else {
             user?.userImage = detailView.mainImageView.image
             let userId = Int(detailView.userIdTextField.text!) ?? 0
@@ -87,11 +89,11 @@ final class DetailViewController: UIViewController {
             user!.address = detailView.addressTextField.text ?? ""
             detailView.user = user
             
-            let index = navigationController!.viewControllers.count - 2
-            guard let vc = navigationController?.viewControllers[index] as? ViewController else { return }
-            vc.userListManager.updateUserInfo(index: userId, user!)
+//            let index = navigationController!.viewControllers.count - 2
+//            guard let vc = navigationController?.viewControllers[index] as? ViewController else { return }
+//            vc.userListManager.updateUserInfo(index: userId, user!)
             
-            //delegate?.update(index: memberId, member!)
+            delegate?.updateUser(index: userId, user!)
         }
         
         self.navigationController?.popViewController(animated: true)
