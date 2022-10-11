@@ -89,6 +89,7 @@ extension MainViewController: UITableViewDataSource {
         let todoData = todoManager.getMemoDataFromCoreData()
         cell.todoData = todoData[indexPath.row]
         cell.updateButtonPressed = { [weak self] (senderCell) in
+            print(#function)
             self?.performSegue(withIdentifier: "toDetailVC", sender: indexPath)
         }
         cell.selectionStyle = .none

@@ -35,7 +35,7 @@ final class MemoCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
     }
     
     // MARK: - setUI
@@ -52,12 +52,13 @@ final class MemoCell: UITableViewCell {
         memoTextLabel.text = todoData?.memoText
         dateTextLabel.text = todoData?.dateString
         guard let colorNum = todoData?.color else { return }
-//        let color = MyColor(rawValue: colorNum) ?? .red
-//        updateButton.backgroundColor = color.buttonColor
-//        backGroundView.backgroundColor = color.backgoundColor
+        let color = MyColor(rawValue: colorNum) ?? .red
+        updateButton.backgroundColor = color.buttonColor
+        backGroundView.backgroundColor = color.backgoundColor
     }
     
     @IBAction func updateButtonTapped(_ sender: UIButton) {
+        print(#function)
         updateButtonPressed(self)
     }
     

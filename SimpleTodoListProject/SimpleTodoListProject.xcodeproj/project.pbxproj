@@ -20,6 +20,8 @@
 		36DD6E6328F5B88000DCDF7D /* MemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DD6E6128F5B88000DCDF7D /* MemoCell.xib */; };
 		36DD6E6528F5C65A00DCDF7D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E6428F5C65A00DCDF7D /* DetailViewController.swift */; };
 		36DD6E6728F5C68C00DCDF7D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E6628F5C68C00DCDF7D /* CoreDataManager.swift */; };
+		36DD6E6A28F5D42600DCDF7D /* MyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E6928F5D42600DCDF7D /* MyColor.swift */; };
+		36DD6E6C28F5D45400DCDF7D /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E6B28F5D45400DCDF7D /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		36DD6E6128F5B88000DCDF7D /* MemoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoCell.xib; sourceTree = "<group>"; };
 		36DD6E6428F5C65A00DCDF7D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		36DD6E6628F5C68C00DCDF7D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		36DD6E6928F5D42600DCDF7D /* MyColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyColor.swift; sourceTree = "<group>"; };
+		36DD6E6B28F5D45400DCDF7D /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,7 @@
 		36DD6E3B28F5B2ED00DCDF7D /* SimpleTodoListProject */ = {
 			isa = PBXGroup;
 			children = (
+				36DD6E6828F5D41200DCDF7D /* Helpers */,
 				36DD6E5528F5B34900DCDF7D /* Models */,
 				36DD6E5428F5B34200DCDF7D /* Views */,
 				36DD6E5328F5B33800DCDF7D /* Controllers */,
@@ -110,6 +115,15 @@
 				36DD6E6628F5C68C00DCDF7D /* CoreDataManager.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		36DD6E6828F5D41200DCDF7D /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				36DD6E6928F5D42600DCDF7D /* MyColor.swift */,
+				36DD6E6B28F5D45400DCDF7D /* UIColor+Extension.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -187,8 +201,10 @@
 				36DD6E6228F5B88000DCDF7D /* MemoCell.swift in Sources */,
 				36DD6E4128F5B2ED00DCDF7D /* MainViewController.swift in Sources */,
 				36DD6E4728F5B2ED00DCDF7D /* SimpleTodoListProject.xcdatamodeld in Sources */,
+				36DD6E6C28F5D45400DCDF7D /* UIColor+Extension.swift in Sources */,
 				36DD6E3D28F5B2ED00DCDF7D /* AppDelegate.swift in Sources */,
 				36DD6E5E28F5B71900DCDF7D /* MemoData+CoreDataClass.swift in Sources */,
+				36DD6E6A28F5D42600DCDF7D /* MyColor.swift in Sources */,
 				36DD6E5F28F5B71900DCDF7D /* MemoData+CoreDataProperties.swift in Sources */,
 				36DD6E6728F5C68C00DCDF7D /* CoreDataManager.swift in Sources */,
 				36DD6E3F28F5B2ED00DCDF7D /* SceneDelegate.swift in Sources */,
