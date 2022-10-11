@@ -64,6 +64,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="albumNameLabel" destination="BHR-NI-cHJ" id="gH2-DX-nIt"/>
+                <outlet property="artistNameLabel" destination="5Sc-un-0cP" id="NJ6-28-7ah"/>
+                <outlet property="mainImageView" destination="rrs-Qn-mXO" id="5nb-SJ-iYd"/>
+                <outlet property="releaseDateLabel" destination="IVy-mq-RJ8" id="q8j-gA-ZdX"/>
+                <outlet property="songNameLabel" destination="DLg-hx-uwm" id="Ztu-K4-mpN"/>
+            </connections>
             <point key="canvasLocation" x="-16.923076923076923" y="76.421800947867297"/>
         </tableViewCell>
     </objects>

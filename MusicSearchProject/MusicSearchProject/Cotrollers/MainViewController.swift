@@ -22,6 +22,8 @@ final class MainViewController: UIViewController {
     
     @IBOutlet weak var musicTableView: UITableView!
     
+    var musicArrays: [Music] = []
+    var networkManager = NetworkManager.shared
     
     // MARK: - LifeCycle
 
@@ -29,14 +31,15 @@ final class MainViewController: UIViewController {
         super.viewDidLoad()
         setupSearchBar()
         setupTableView()
+        setupDatas()
     }
     
 }
 
-// MARK: - SetUI Method
+// MARK: - SetUI / Method
 
 extension MainViewController {
-    func setupSearchBar() {
+    private func setupSearchBar() {
         self.title = "Music Search"
         navigationItem.searchController = searchController
         searchController.searchResultsUpdater = self
@@ -44,10 +47,24 @@ extension MainViewController {
         searchController.searchBar.autocapitalizationType = .none
     }
     
-    func setupTableView() {
+    private func setupTableView() {
         musicTableView.dataSource = self
         musicTableView.delegate = self
-        musicTableView.register(UINib(nibName: "MusicCell", bundle: nil), forCellReuseIdentifier: "MusicCell")
+        musicTableView.register(UINib(nibName: Cell.musicCellIdentifier, bundle: nil), forCellReuseIdentifier: Cell.musicCellIdentifier)
+    }
+    
+    private func setupDatas() {
+        networkManager.fetchMusic(searchTerm: "jazz") { result in
+            switch result {
+            case .success(let musicData):
+                self.musicArrays = musicData
+                DispatchQueue.main.async {
+                    self.musicTableView.reloadData()
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
@@ -55,16 +72,21 @@ extension MainViewController {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return musicArrays.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = musicTableView.dequeueReusableCell(withIdentifier: "MusicCell", for: indexPath) as? MusicCell else { return UITableViewCell()}
+        guard let cell = musicTableView.dequeueReusableCell(withIdentifier: Cell.musicCellIdentifier, for: indexPath) as? MusicCell else { return UITableViewCell()}
+        let musicIndex = musicArrays[indexPath.row]
+        
+        cell.imageUrl = musicIndex.imageUrl
+        cell.songNameLabel.text = musicIndex.songName
+        cell.artistNameLabel.text = musicIndex.artistName
+        cell.albumNameLabel.text = musicIndex.albumName
+        cell.releaseDateLabel.text = musicIndex.releaseDateString
         
         return cell
     }
-    
-    
 }
 
 // MARK: - UITableViewDelegate
