@@ -233,11 +233,26 @@ class DetailView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .white
+        userIdTextField.delegate = self
         setupStackView()
+        setupNotification()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
     
     
@@ -251,6 +266,21 @@ class DetailView: UIView {
 
     func setupStackView() {
         self.addSubview(stackView)
+    }
+    
+    func setupNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(moveUpAction),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(moveDownAction),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
     
     func setConstraints() {
@@ -274,7 +304,9 @@ class DetailView: UIView {
             addressLabel.widthAnchor.constraint(equalToConstant: labelWidth)
         ])
         
-        stackViewTopConstraint = stackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10)
+        stackViewTopConstraint = stackView.topAnchor.constraint(
+            equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10
+        )
         
         NSLayoutConstraint.activate([
             stackViewTopConstraint,
@@ -282,5 +314,38 @@ class DetailView: UIView {
             stackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
             stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20)
         ])
+    }
+    
+    @objc func moveUpAction() {
+        stackViewTopConstraint.constant = -20
+        UIView.animate(withDuration: 0.2) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    @objc func moveDownAction() {
+        stackViewTopConstraint.constant = 10
+        UIView.animate(withDuration: 0.2) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+
+extension DetailView: UITextFieldDelegate {
+    func textField(
+        _ textField: UITextField,
+        shouldChangeCharactersIn range: NSRange,
+        replacementString string: String
+    ) -> Bool {
+        if textField == userIdTextField {
+            return false
+        }
+        return true
     }
 }

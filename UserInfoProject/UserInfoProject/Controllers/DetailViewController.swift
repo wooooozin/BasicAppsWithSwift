@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 final class DetailViewController: UIViewController {
     
@@ -25,6 +26,7 @@ final class DetailViewController: UIViewController {
         super.viewDidLoad()
         setupData()
         setupButtonAction()
+        setupTapGestures() 
     }
     
     // MARK: - Method
@@ -35,6 +37,27 @@ final class DetailViewController: UIViewController {
     
     private func setupButtonAction() {
         detailView.saveButton.addTarget(self, action: #selector(saveButtonTapped), for: .touchUpInside)
+    }
+    
+    private func setupTapGestures() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(touchUpImageView))
+        detailView.mainImageView.addGestureRecognizer(tapGesture)
+        detailView.mainImageView.isUserInteractionEnabled = true
+    }
+    
+    @objc func touchUpImageView() {
+        print(#function)
+        setupImagePicker()
+    }
+    
+    private func setupImagePicker() {
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 0
+        configuration.filter = .any(of: [.images, .videos])
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
     }
     
     @objc func saveButtonTapped() {
@@ -73,5 +96,24 @@ final class DetailViewController: UIViewController {
         
         self.navigationController?.popViewController(animated: true)
         
+    }
+}
+
+// MARK: - PHPickerViewControllerDelegate
+
+extension DetailViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        
+        let itemProvider = results.first?.itemProvider
+        if let itemProvider = itemProvider, itemProvider.canLoadObject(ofClass: UIImage.self) {
+            itemProvider.loadObject(ofClass: UIImage.self) { (image, error) in
+                DispatchQueue.main.async {
+                    self.detailView.mainImageView.image = image as? UIImage
+                }
+            }
+        } else {
+            print("이미지 로드 실패")
+        }
     }
 }
