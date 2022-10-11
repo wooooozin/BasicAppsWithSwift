@@ -38,5 +38,8 @@ final class UserListManager {
         get {
             return userList[index]
         }
+        set {
+            userList[index] = newValue
+        }
     }
 }

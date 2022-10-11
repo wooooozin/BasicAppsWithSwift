@@ -71,6 +71,7 @@ extension ViewController {
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.register(MyTableViewCell.self, forCellReuseIdentifier: "UserCell")
     }
     
     private func setupDatas() {
@@ -87,7 +88,16 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: "UserCell",
+            for: indexPath
+        ) as? MyTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.user = userListManager[indexPath.row]
+        cell.selectionStyle = .none
+        
         return cell
     }
 }
@@ -95,5 +105,11 @@ extension ViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension ViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetailViewController()
+        let array = userListManager.getUserList()
+        vc.user = array[indexPath.row]
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

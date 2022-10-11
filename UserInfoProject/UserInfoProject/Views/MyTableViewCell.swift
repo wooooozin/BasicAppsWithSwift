@@ -11,6 +11,14 @@ class MyTableViewCell: UITableViewCell {
     
     // MARK: - Property
     
+    var user: User? {
+        didSet {
+            mainImageView.image = user?.userImage
+            userNameLabel.text = user?.name
+            addressLabel.text = user?.address
+        }
+    }
+    
     let mainImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -46,6 +54,7 @@ class MyTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: reuseIdentifier)
+        setupStackView()
     }
     
     required init?(coder: NSCoder) {
