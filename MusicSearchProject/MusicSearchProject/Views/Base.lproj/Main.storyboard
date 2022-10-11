@@ -47,9 +47,31 @@
                     <view key="view" contentMode="scaleToFill" id="gw9-e2-YSX">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="kS5-LN-plq">
+                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="VVq-Oo-Gms">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="ccd-U6-Maa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kS5-LN-plq" firstAttribute="top" secondItem="ccd-U6-Maa" secondAttribute="top" id="S7i-1d-EAd"/>
+                            <constraint firstItem="kS5-LN-plq" firstAttribute="leading" secondItem="ccd-U6-Maa" secondAttribute="leading" id="UCg-Nd-8nf"/>
+                            <constraint firstItem="ccd-U6-Maa" firstAttribute="trailing" secondItem="kS5-LN-plq" secondAttribute="trailing" id="YQ0-sn-ckP"/>
+                            <constraint firstItem="ccd-U6-Maa" firstAttribute="bottom" secondItem="kS5-LN-plq" secondAttribute="bottom" id="bEy-6E-kly"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="kS5-LN-plq" id="4mL-os-htB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUx-4w-olv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

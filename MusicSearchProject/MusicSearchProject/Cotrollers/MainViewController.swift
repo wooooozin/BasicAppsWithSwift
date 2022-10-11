@@ -50,11 +50,16 @@ extension MainViewController {
     private func setupTableView() {
         musicTableView.dataSource = self
         musicTableView.delegate = self
-        musicTableView.register(UINib(nibName: Cell.musicCellIdentifier, bundle: nil), forCellReuseIdentifier: Cell.musicCellIdentifier)
+        musicTableView.register(
+            UINib(
+                nibName: Cell.musicCellIdentifier, bundle: nil
+            ),
+            forCellReuseIdentifier: Cell.musicCellIdentifier
+        )
     }
     
     private func setupDatas() {
-        networkManager.fetchMusic(searchTerm: "jazz") { result in
+        networkManager.fetchMusic(searchTerm: "BTS") { result in
             switch result {
             case .success(let musicData):
                 self.musicArrays = musicData
@@ -76,7 +81,12 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = musicTableView.dequeueReusableCell(withIdentifier: Cell.musicCellIdentifier, for: indexPath) as? MusicCell else { return UITableViewCell()}
+        guard let cell = musicTableView.dequeueReusableCell(
+            withIdentifier: Cell.musicCellIdentifier,
+            for: indexPath
+        ) as? MusicCell else {
+            return UITableViewCell()
+        }
         let musicIndex = musicArrays[indexPath.row]
         
         cell.imageUrl = musicIndex.imageUrl
@@ -84,7 +94,7 @@ extension MainViewController: UITableViewDataSource {
         cell.artistNameLabel.text = musicIndex.artistName
         cell.albumNameLabel.text = musicIndex.albumName
         cell.releaseDateLabel.text = musicIndex.releaseDateString
-        
+        cell.selectionStyle = .none
         return cell
     }
 }
@@ -92,11 +102,17 @@ extension MainViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
         return 120
     }
     
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(
+        _ tableView: UITableView,
+        estimatedHeightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
         return UITableView.automaticDimension
     }
 }
@@ -106,7 +122,7 @@ extension MainViewController: UITableViewDelegate {
 extension MainViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         print("searchBar words", searchController.searchBar.text ?? "")
-//        guard let vc = searchController.searchResultsController as? SearchResultViewController else { return }
-        
+        guard let vc = searchController.searchResultsController as? SearchResultViewController else { return }
+        vc.searchTerm = searchController.searchBar.text ?? ""
     }
 }
