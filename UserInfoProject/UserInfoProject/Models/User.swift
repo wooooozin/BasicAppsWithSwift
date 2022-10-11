@@ -18,10 +18,10 @@ struct User {
     static var memberNumber: Int = 0
     
     let userId: Int
-    let name: String?
-    let age: Int?
-    let phoneNumber: String?
-    let address: String?
+    var name: String?
+    var age: Int?
+    var phoneNumber: String?
+    var address: String?
     
     init(name: String?, age: Int?, phoneNumber: String?, address: String?) {
         self.userId = Self.memberNumber
