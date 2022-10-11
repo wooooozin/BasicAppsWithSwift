@@ -14,6 +14,9 @@
 		36DD6E4728F5B2ED00DCDF7D /* SimpleTodoListProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E4528F5B2ED00DCDF7D /* SimpleTodoListProject.xcdatamodeld */; };
 		36DD6E4928F5B2EF00DCDF7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36DD6E4828F5B2EF00DCDF7D /* Assets.xcassets */; };
 		36DD6E4C28F5B2EF00DCDF7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36DD6E4A28F5B2EF00DCDF7D /* LaunchScreen.storyboard */; };
+		36DD6E5728F5B39C00DCDF7D /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E5628F5B39C00DCDF7D /* Memo.swift */; };
+		36DD6E5E28F5B71900DCDF7D /* MemoData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E5C28F5B71900DCDF7D /* MemoData+CoreDataClass.swift */; };
+		36DD6E5F28F5B71900DCDF7D /* MemoData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E5D28F5B71900DCDF7D /* MemoData+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		36DD6E4828F5B2EF00DCDF7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36DD6E4B28F5B2EF00DCDF7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36DD6E4D28F5B2EF00DCDF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36DD6E5628F5B39C00DCDF7D /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		36DD6E5C28F5B71900DCDF7D /* MemoData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		36DD6E5D28F5B71900DCDF7D /* MemoData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +64,11 @@
 		36DD6E3B28F5B2ED00DCDF7D /* SimpleTodoListProject */ = {
 			isa = PBXGroup;
 			children = (
+				36DD6E5528F5B34900DCDF7D /* Models */,
+				36DD6E5428F5B34200DCDF7D /* Views */,
+				36DD6E5328F5B33800DCDF7D /* Controllers */,
 				36DD6E3C28F5B2ED00DCDF7D /* AppDelegate.swift */,
 				36DD6E3E28F5B2ED00DCDF7D /* SceneDelegate.swift */,
-				36DD6E4028F5B2ED00DCDF7D /* ViewController.swift */,
 				36DD6E4228F5B2ED00DCDF7D /* Main.storyboard */,
 				36DD6E4828F5B2EF00DCDF7D /* Assets.xcassets */,
 				36DD6E4A28F5B2EF00DCDF7D /* LaunchScreen.storyboard */,
@@ -68,6 +76,31 @@
 				36DD6E4528F5B2ED00DCDF7D /* SimpleTodoListProject.xcdatamodeld */,
 			);
 			path = SimpleTodoListProject;
+			sourceTree = "<group>";
+		};
+		36DD6E5328F5B33800DCDF7D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				36DD6E4028F5B2ED00DCDF7D /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		36DD6E5428F5B34200DCDF7D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		36DD6E5528F5B34900DCDF7D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				36DD6E5628F5B39C00DCDF7D /* Memo.swift */,
+				36DD6E5C28F5B71900DCDF7D /* MemoData+CoreDataClass.swift */,
+				36DD6E5D28F5B71900DCDF7D /* MemoData+CoreDataProperties.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +177,10 @@
 				36DD6E4128F5B2ED00DCDF7D /* ViewController.swift in Sources */,
 				36DD6E4728F5B2ED00DCDF7D /* SimpleTodoListProject.xcdatamodeld in Sources */,
 				36DD6E3D28F5B2ED00DCDF7D /* AppDelegate.swift in Sources */,
+				36DD6E5E28F5B71900DCDF7D /* MemoData+CoreDataClass.swift in Sources */,
+				36DD6E5F28F5B71900DCDF7D /* MemoData+CoreDataProperties.swift in Sources */,
 				36DD6E3F28F5B2ED00DCDF7D /* SceneDelegate.swift in Sources */,
+				36DD6E5728F5B39C00DCDF7D /* Memo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
