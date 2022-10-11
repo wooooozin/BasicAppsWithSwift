@@ -15,11 +15,29 @@ final class MainViewController: UIViewController {
     
     // MARK: - Property
     
+    let todoManager = CoreDataManager.shred
     
+    // MARK: - LifeCycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setNaviBar()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
+    //MARK: - prepare method
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailVC" {
+            guard let detailVC = segue.destination as? DetailViewController else { return }
+            
+            guard let indexPath = sender as? IndexPath else { return }
+            detailVC.todoData = todoManager.getMemoDataFromCoreData()[indexPath.row]
+        }
     }
 }
 
@@ -52,7 +70,7 @@ extension MainViewController {
     
     // MARK: - @objc method
     @objc func plusButtonTapped() {
-        
+        performSegue(withIdentifier: "toDetailVC", sender: nil)
     }
 }
 
@@ -60,7 +78,7 @@ extension MainViewController {
 
 extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return todoManager.getMemoDataFromCoreData().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -68,8 +86,12 @@ extension MainViewController: UITableViewDataSource {
             withIdentifier: "MemoCell",
             for: indexPath
         ) as? MemoCell else { return UITableViewCell() }
+        let todoData = todoManager.getMemoDataFromCoreData()
+        cell.todoData = todoData[indexPath.row]
+        cell.updateButtonPressed = { [weak self] (senderCell) in
+            self?.performSegue(withIdentifier: "toDetailVC", sender: indexPath)
+        }
         cell.selectionStyle = .none
-        
         return cell
     }
 }

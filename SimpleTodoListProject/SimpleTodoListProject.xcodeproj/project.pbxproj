@@ -18,6 +18,8 @@
 		36DD6E5F28F5B71900DCDF7D /* MemoData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E5D28F5B71900DCDF7D /* MemoData+CoreDataProperties.swift */; };
 		36DD6E6228F5B88000DCDF7D /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E6028F5B88000DCDF7D /* MemoCell.swift */; };
 		36DD6E6328F5B88000DCDF7D /* MemoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 36DD6E6128F5B88000DCDF7D /* MemoCell.xib */; };
+		36DD6E6528F5C65A00DCDF7D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E6428F5C65A00DCDF7D /* DetailViewController.swift */; };
+		36DD6E6728F5C68C00DCDF7D /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E6628F5C68C00DCDF7D /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		36DD6E5D28F5B71900DCDF7D /* MemoData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		36DD6E6028F5B88000DCDF7D /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		36DD6E6128F5B88000DCDF7D /* MemoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoCell.xib; sourceTree = "<group>"; };
+		36DD6E6428F5C65A00DCDF7D /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		36DD6E6628F5C68C00DCDF7D /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				36DD6E4028F5B2ED00DCDF7D /* MainViewController.swift */,
+				36DD6E6428F5C65A00DCDF7D /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 			children = (
 				36DD6E5C28F5B71900DCDF7D /* MemoData+CoreDataClass.swift */,
 				36DD6E5D28F5B71900DCDF7D /* MemoData+CoreDataProperties.swift */,
+				36DD6E6628F5C68C00DCDF7D /* CoreDataManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -184,7 +190,9 @@
 				36DD6E3D28F5B2ED00DCDF7D /* AppDelegate.swift in Sources */,
 				36DD6E5E28F5B71900DCDF7D /* MemoData+CoreDataClass.swift in Sources */,
 				36DD6E5F28F5B71900DCDF7D /* MemoData+CoreDataProperties.swift in Sources */,
+				36DD6E6728F5C68C00DCDF7D /* CoreDataManager.swift in Sources */,
 				36DD6E3F28F5B2ED00DCDF7D /* SceneDelegate.swift in Sources */,
+				36DD6E6528F5C65A00DCDF7D /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

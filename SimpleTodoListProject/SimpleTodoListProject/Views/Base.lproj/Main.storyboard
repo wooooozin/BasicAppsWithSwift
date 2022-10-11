@@ -34,11 +34,28 @@
                     <navigationItem key="navigationItem" id="o5a-jT-ys7"/>
                     <connections>
                         <outlet property="tableView" destination="KZU-87-7f9" id="UBW-Gi-qgv"/>
+                        <segue destination="YWB-QD-NEp" kind="show" identifier="toDetailVC" id="mOH-Wp-NMG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1067.6923076923076" y="-2.1327014218009479"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="t9S-WL-SHg">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" id="YWB-QD-NEp" customClass="DetailViewController" customModule="SimpleTodoListProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GPJ-f8-AnH">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="yqA-PN-A1R"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Pz3-HQ-d1G"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hlp-M2-j0o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1885" y="-2"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jpN-jc-Ecj">
