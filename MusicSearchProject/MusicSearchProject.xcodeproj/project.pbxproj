@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		367A2DFC290AC042004BCEA8 /* MusicSearch.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 367A2DFA290AC042004BCEA8 /* MusicSearch.xcdatamodeld */; };
+		367A2DFF290AC0E1004BCEA8 /* MusicSearch+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367A2DFD290AC0E1004BCEA8 /* MusicSearch+CoreDataClass.swift */; };
+		367A2E00290AC0E1004BCEA8 /* MusicSearch+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367A2DFE290AC0E1004BCEA8 /* MusicSearch+CoreDataProperties.swift */; };
 		36DD6E0828F5504300DCDF7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E0728F5504300DCDF7D /* AppDelegate.swift */; };
 		36DD6E0A28F5504300DCDF7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E0928F5504300DCDF7D /* SceneDelegate.swift */; };
 		36DD6E0C28F5504300DCDF7D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD6E0B28F5504300DCDF7D /* MainViewController.swift */; };
@@ -24,6 +27,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		367A2DFB290AC042004BCEA8 /* MusicSearch.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MusicSearch.xcdatamodel; sourceTree = "<group>"; };
+		367A2DFD290AC0E1004BCEA8 /* MusicSearch+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicSearch+CoreDataClass.swift"; sourceTree = "<group>"; };
+		367A2DFE290AC0E1004BCEA8 /* MusicSearch+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MusicSearch+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		36DD6E0428F5504300DCDF7D /* MusicSearchProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicSearchProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36DD6E0728F5504300DCDF7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36DD6E0928F5504300DCDF7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +85,7 @@
 				36DD6E1B28F5505D00DCDF7D /* Cotrollers */,
 				36DD6E0728F5504300DCDF7D /* AppDelegate.swift */,
 				36DD6E0928F5504300DCDF7D /* SceneDelegate.swift */,
+				367A2DFA290AC042004BCEA8 /* MusicSearch.xcdatamodeld */,
 				36DD6E1028F5504500DCDF7D /* Assets.xcassets */,
 				36DD6E1228F5504500DCDF7D /* LaunchScreen.storyboard */,
 				36DD6E1528F5504500DCDF7D /* Info.plist */,
@@ -110,6 +117,8 @@
 		36DD6E1D28F5506E00DCDF7D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				367A2DFD290AC0E1004BCEA8 /* MusicSearch+CoreDataClass.swift */,
+				367A2DFE290AC0E1004BCEA8 /* MusicSearch+CoreDataProperties.swift */,
 				36DD6E2828F55EA100DCDF7D /* Music.swift */,
 			);
 			path = Models;
@@ -207,10 +216,13 @@
 				36DD6E2428F55AA800DCDF7D /* MusicCell.swift in Sources */,
 				36DD6E0C28F5504300DCDF7D /* MainViewController.swift in Sources */,
 				36DD6E2E28F5650900DCDF7D /* MusicCollectionViewCell.swift in Sources */,
+				367A2DFC290AC042004BCEA8 /* MusicSearch.xcdatamodeld in Sources */,
 				36DD6E0828F5504300DCDF7D /* AppDelegate.swift in Sources */,
+				367A2DFF290AC0E1004BCEA8 /* MusicSearch+CoreDataClass.swift in Sources */,
 				36DD6E2128F5561B00DCDF7D /* SearchResultViewController.swift in Sources */,
 				36DD6E2B28F55F1E00DCDF7D /* NetworkManager.swift in Sources */,
 				36DD6E2928F55EA100DCDF7D /* Music.swift in Sources */,
+				367A2E00290AC0E1004BCEA8 /* MusicSearch+CoreDataProperties.swift in Sources */,
 				36DD6E0A28F5504300DCDF7D /* SceneDelegate.swift in Sources */,
 				36DD6E2728F55D1A00DCDF7D /* Constants.swift in Sources */,
 			);
@@ -436,6 +448,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		367A2DFA290AC042004BCEA8 /* MusicSearch.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				367A2DFB290AC042004BCEA8 /* MusicSearch.xcdatamodel */,
+			);
+			currentVersion = 367A2DFB290AC042004BCEA8 /* MusicSearch.xcdatamodel */;
+			path = MusicSearch.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 36DD6DFC28F5504300DCDF7D /* Project object */;
 }
